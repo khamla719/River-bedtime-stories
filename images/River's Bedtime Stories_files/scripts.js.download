@@ -1,0 +1,56 @@
+// function showStory(storyId) {
+//     const stories = document.querySelectorAll('article');
+//     stories.forEach((story) => {
+//         if (story.id === storyId) {
+//             story.style.display = 'block';
+//         } else {
+//             story.style.display = 'none';
+//         }
+//     });
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const navLinks = document.querySelectorAll('nav a');
+//     navLinks.forEach((link) => {
+//         link.addEventListener('click', (event) => {
+//             event.preventDefault();
+//             showStory(link.dataset.story);
+//         });
+//     });
+
+//     // Show the first story by default
+//     showStory('story1');
+// });
+
+function showStory(storyId) {
+    const stories = document.querySelectorAll('article');
+    stories.forEach((story) => {
+        if (story.id === storyId) {
+            story.style.display = 'block';
+        } else {
+            story.style.display = 'none';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            showStory(link.dataset.story);
+
+            // Remove active class from all other links
+            navLinks.forEach((otherLink) => {
+                otherLink.classList.remove('nav-link-active');
+            });
+
+            // Add active class to the clicked link
+            link.classList.add('nav-link-active');
+        });
+    });
+
+    // Show the first story by default and make the first link active
+    showStory('story1');
+    navLinks[0].classList.add('nav-link-active');
+});
