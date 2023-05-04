@@ -48,7 +48,7 @@ article h2 {
 }
 
 article p {
-    font-size: 16px;
+    font-size: 22px;
     line-height: 1.5;
     max-width: 75%;
     display: block; /* Add this line to make the image a block-level element */
